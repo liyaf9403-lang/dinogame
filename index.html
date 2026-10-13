@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cyber Dino Runner</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Outfit:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="background-glow glow-1"></div>
+  <div class="background-glow glow-2"></div>
+
+  <main class="game-container">
+    <header class="game-header">
+      <div class="title-wrap">
+        <span class="badge">ARCADE EDITION</span>
+        <h1 class="game-title">CHRONO DINO</h1>
+      </div>
+      <div class="hud">
+        <div class="hud-box">
+          <span class="hud-label">HI-SCORE</span>
+          <span class="hud-value" id="hiScoreVal">00000</span>
+        </div>
+        <div class="hud-box highlight">
+          <span class="hud-label">SCORE</span>
+          <span class="hud-value" id="scoreVal">00000</span>
+        </div>
+        <div class="hud-box speed-box">
+          <span class="hud-label">SPEED</span>
+          <span class="hud-value" id="speedVal">1.0x</span>
+        </div>
+      </div>
+    </header>
+
+    <div class="canvas-wrapper">
+      <canvas id="gameCanvas" width="900" height="300"></canvas>
+
+      <!-- Overlay Screen -->
+      <div id="overlayScreen" class="overlay-screen visible">
+        <div class="overlay-card" id="startCard">
+          <div class="dino-avatar-preview">🦖</div>
+          <h2>READY TO RUN?</h2>
+          <p>Dodge prehistoric cacti, duck under pterodactyls, and survive the digital badlands!</p>
+          <div class="controls-guide">
+            <div class="control-key"><span>SPACE</span> / <span>▲</span> Jump</div>
+            <div class="control-key"><span>▼</span> Duck</div>
+          </div>
+          <button id="startBtn" class="action-btn">PRESS START</button>
+        </div>
+
+        <div class="overlay-card hidden" id="gameOverCard">
+          <div class="game-over-tag">SYSTEM FAILURE</div>
+          <h2>EXTINCTION EVENT!</h2>
+          <p id="finalScoreText">Final Score: 00000</p>
+          <div class="new-high-score hidden" id="newHighScoreNotice">🏆 NEW RECORD!</div>
+          <button id="restartBtn" class="action-btn">TRY AGAIN (SPACE)</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Mobile / Touch Controls -->
+    <div class="mobile-controls">
+      <button id="touchDuckBtn" class="touch-btn">
+        <span class="icon">▼</span>
+        <span>DUCK</span>
+      </button>
+      <button id="touchJumpBtn" class="touch-btn jump">
+        <span class="icon">▲</span>
+        <span>JUMP</span>
+      </button>
+    </div>
+
+    <footer class="game-footer">
+      <div class="sound-toggle-wrap">
+        <button id="soundToggleBtn" class="sound-btn" aria-label="Toggle Sound">
+          <span id="soundIcon">🔊</span> Sound: <span id="soundStatus">ON</span>
+        </button>
+      </div>
+      <p class="tips-text">Tip: Double tap jump for extra lift! Hold Duck to slide low.</p>
+    </footer>
+  </main>
+
+  <script src="game.js"></script>
+</body>
+</html>
